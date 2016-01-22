@@ -192,13 +192,14 @@ var FrontendBook = {
                 }
             }
 
-            // Display the next step tab (uses jquery animation effect).
+            // Display the next step tab and move to top of the page (uses jquery animation effect).
             var nextTabIndex = parseInt($(this).attr('data-step_index')) + 1;
 
             $(this).parents().eq(1).hide('fade', function() {
                 $('.active-step').removeClass('active-step');
                 $('#step-' + nextTabIndex).addClass('active-step');
                 $('#wizard-frame-' + nextTabIndex).show('fade');
+                $('html,body').scrollTop(0);
             });
         });
 
